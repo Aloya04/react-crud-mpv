@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import UserForm from "../components/UserForm";
+import GameForm from "../components/GameForm";
 
 export default function UpdatePage() {
   const { id } = useParams();
@@ -10,14 +10,14 @@ export default function UpdatePage() {
   useEffect(() => {
     const data = localStorage.getItem("users");
     const usersData = JSON.parse(data) || [];
-    setUser(usersData.find(user => user.id === id));
+    setUser(usersData.find((user) => user.id === id));
   }, [id]); // <--- "[params.id]" VERY IMPORTANT!!!
 
   async function updateUser(userToUpdate) {
     const data = localStorage.getItem("users");
     const usersData = JSON.parse(data) || [];
     // map through the users
-    const updatedUsers = usersData.map(user => {
+    const updatedUsers = usersData.map((user) => {
       // if the user id is the same as the id from the params
       if (user.id === id) {
         return { ...user, ...userToUpdate }; // return the user with the updated data
@@ -37,7 +37,7 @@ export default function UpdatePage() {
     <section className="page">
       <div className="container">
         <h1>Update</h1>
-        <UserForm onSubmit={updateUser} onCancel={handleCancel} user={user} />
+        <GameForm onSubmit={updateUser} onCancel={handleCancel} user={user} />
       </div>
     </section>
   );

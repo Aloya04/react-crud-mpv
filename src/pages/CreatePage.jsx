@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import UserForm from "../components/UserForm";
+import GameForm from "../components/GameForm";
 
 export default function CreatePage() {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function CreatePage() {
     <section className="page">
       <div className="container">
         <h1>Create New Game</h1>
-        <UserForm onSubmit={createGame} onCancel={handleCancel} />
+        <GameForm onSubmit={createGame} onCancel={handleCancel} />
       </div>
     </section>
   );
