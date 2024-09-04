@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1",
+    "image": "https://imgur.com/a/RXeQywO",
+    "title": "Catan",
+    "difficulty": "Medium",
+    "theme": "Trading",
+    "players": "2-4",
+    "audience": "Everyone",
+    "playtime": "90-120min",
+    "mechanics": "Strategy"
+  },
+  {
+    "id": "2",
+    "image": "https://imgur.com/0bibyz1",
+    "title": "Monopoly",
+    "difficulty": "Easy",
+    "theme": "Trading",
+    "players": "3-6",
+    "audience": "Everyone",
+    "playtime": "90-120min",
+    "mechanics": "Competitive"
+  },
+  {
+    "id": "3",
+    "image": "https://imgur.com/0YmizUF",
+    "title": "Uno",
+    "difficulty": "Easy",
+    "theme": "Humor",
+    "players": "6+",
+    "audience": "Everyone",
+    "playtime": "15-30min",
+    "mechanics": "Competitive"
+  },
+  {
+    "id": "4",
+    "image": "https://imgur.com/lDQHqZe",
+    "title": "Dixit",
+    "difficulty": "Medium",
+    "theme": "Fantasy",
+    "players": "3-6",
+    "audience": "Everyone",
+    "playtime": "90-120min",
+    "mechanics": "Deduction"
+  },
+  {
+    "id": "5",
+    "image": "https://imgur.com/XSwrNhQ",
+    "title": "Escape: Curse of the Temple",
+    "difficulty": "Hard",
+    "theme": "Adventure",
+    "players": "2-4",
+    "audience": "Adults",
+    "playtime": "2+ hours",
+    "mechanics": "Co-op"
+  },
+  {
+    "id": "6",
+    "image": "https://imgur.com/XSwrNhQ",
+    "title": "Exploding Kittens",
+    "difficulty": "Easy",
+    "theme": "Humor",
+    "players": "2-5",
+    "audience": "Everyone",
+    "playtime": "15-30min",
+    "mechanics": "Competitive"
+  },
+  {
+    "id": "7",
+    "image": "https://imgur.com/HFofJnf",
+    "title": "Codenames",
+    "difficulty": "Medium",
+    "theme": "Educational",
+    "players": "6+",
+    "audience": "Adults",
+    "playtime": "60-90min",
+    "mechanics": "Teams"
+  },
+  {
+    "id": "8",
+    "image": "https://imgur.com/simjapN",
+    "title": "The Mind",
+    "difficulty": "Hard",
+    "theme": "Educational",
+    "players": "2-4",
+    "audience": "Everyone",
+    "playtime": "90-120min",
+    "mechanics": "Co-op"
+  },
+  {
+    "id": "9",
+    "image": "https://imgur.com/zLwhqX0",
+    "title": "Cards Against Humanity",
+    "difficulty": "Easy",
+    "theme": "Humor",
+    "players": "6+",
+    "audience": "Adults",
+    "playtime": "30-60min",
+    "mechanics": "Competitive"
+  },
+  {
+    "id": "10",
+    "image": "https://imgur.com/XSwrNhQ",
+    "title": "Incan Gold",
+    "difficulty": "Medium",
+    "theme": "Adventure",
+    "players": "3-6",
+    "audience": "Everyone",
+    "playtime": "30-60min",
+    "mechanics": "Strategy"
+  }
+]
