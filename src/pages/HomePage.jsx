@@ -75,7 +75,8 @@ export default function HomePage() {
     );
   }
 
-  // Sort the games array by the selected sort
+  // Sort the games array by title alphabetically
+  filteredGames.sort((game1, game2) => game1.title.localeCompare(game2.title));
 
   // Get unique values for filter options
   const difficulties = [...new Set(games.map((game) => game.difficulty))];

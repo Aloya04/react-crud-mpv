@@ -11,8 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/create" element={<CreatePage />} />
-        <Route path="/users/:id" element={<GameDetailPage />} />
-        <Route path="/users/:id/update" element={<GameUpdatePage />} />
+        <Route path="/games/:id" element={<GameDetailPage />} />
+        <Route path="/games/:id/update" element={<GameUpdatePage />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

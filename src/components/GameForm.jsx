@@ -8,6 +8,7 @@ export default function GameForm({ onSubmit, onCancel, game }) {
   const [audience, setAudience] = useState("");
   const [playtime, setPlaytime] = useState("");
   const [mechanics, setMechanics] = useState("");
+  const [location, setLocation] = useState("");
   const [image, setImage] = useState("");
 
   useEffect(() => {
@@ -19,6 +20,7 @@ export default function GameForm({ onSubmit, onCancel, game }) {
       game.audience && setAudience(game.audience);
       game.playtime && setPlaytime(game.playtime);
       game.mechanics && setMechanics(game.mechanics);
+      game.location && setLocation(game.location);
       game.image && setImage(game.image); // if user.image is true, set the image state with the user.image value
     }
   }, [game]);
@@ -34,7 +36,8 @@ export default function GameForm({ onSubmit, onCancel, game }) {
       !players ||
       !audience ||
       !playtime ||
-      !mechanics
+      !mechanics ||
+      !location
     ) {
       alert("Please fill out all the fields");
       return;
@@ -55,6 +58,8 @@ export default function GameForm({ onSubmit, onCancel, game }) {
       audience: audience,
       playtime: playtime,
       image: image,
+      mechanics: mechanics,
+      location: location,
     };
     onSubmit(game);
   }
@@ -122,6 +127,15 @@ export default function GameForm({ onSubmit, onCancel, game }) {
         value={mechanics}
         placeholder="Type mechanics"
         onChange={(e) => setMechanics(e.target.value)}
+      />
+
+      <label htmlFor="">Location</label>
+      <input
+        id="location"
+        type="text"
+        value={location}
+        placeholder="Type game location (e.g. A1)"
+        onChange={(e) => setLocation(e.target.value)}
       />
 
       <label htmlFor="">Image URL</label>

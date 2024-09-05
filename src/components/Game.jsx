@@ -34,7 +34,7 @@ export default function Game({ game }) {
         </div>
         <div className="category players">
           <img
-            src="players-icon.png"
+            src="/players-icon.png"
             className="game_card-icon"
             alt="player amount icon"
           />

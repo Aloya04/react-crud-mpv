@@ -41,10 +41,12 @@ export default function GameDetailPage() {
         <h1>{game?.title}</h1>
         <Game game={game} />
         <div className="btns">
-          <button className="btn-cancel" onClick={showDeleteDialog}>
+          <button className="btn-cancel-detail-page" onClick={showDeleteDialog}>
             Delete user
           </button>
-          <button onClick={showUpdate}>Update user</button>
+          <button className="btn-detail-page" onClick={showUpdate}>
+            Update user
+          </button>
         </div>
       </div>
     </section>
