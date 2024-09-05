@@ -5,28 +5,28 @@ import GameForm from "../components/GameForm";
 export default function UpdatePage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
+  const [game, setGame] = useState({});
 
   useEffect(() => {
-    const data = localStorage.getItem("users");
-    const usersData = JSON.parse(data) || [];
-    setUser(usersData.find((user) => user.id === id));
+    const data = localStorage.getItem("games");
+    const gamesData = JSON.parse(data) || [];
+    setGame(gamesData.find((game) => game.id === id));
   }, [id]); // <--- "[params.id]" VERY IMPORTANT!!!
 
-  async function updateUser(userToUpdate) {
-    const data = localStorage.getItem("users");
-    const usersData = JSON.parse(data) || [];
+  async function updateGame(gameToUpdate) {
+    const data = localStorage.getItem("games");
+    const gamesData = JSON.parse(data) || [];
     // map through the users
-    const updatedUsers = usersData.map((user) => {
+    const updatedGames = gamesData.map((game) => {
       // if the user id is the same as the id from the params
-      if (user.id === id) {
-        return { ...user, ...userToUpdate }; // return the user with the updated data
+      if (game.id === id) {
+        return { ...game, ...gameToUpdate }; // return the user with the updated data
       }
-      return user; // return the user without updating
+      return game; // return the user without updating
     });
 
-    localStorage.setItem("users", JSON.stringify(updatedUsers)); // save the users state to local storage
-    navigate(`/users/${id}`); // navigate to the user detail page
+    localStorage.setItem("games", JSON.stringify(updatedGames)); // save the users state to local storage
+    navigate(`/games/${id}`); // navigate to the user detail page
   }
 
   function handleCancel() {
@@ -37,7 +37,7 @@ export default function UpdatePage() {
     <section className="page">
       <div className="container">
         <h1>Update</h1>
-        <GameForm onSubmit={updateUser} onCancel={handleCancel} user={user} />
+        <GameForm onSubmit={updateGame} onCancel={handleCancel} game={game} />
       </div>
     </section>
   );

@@ -2,79 +2,103 @@ import { useEffect, useState } from "react";
 import Game from "../components/Game";
 
 export default function HomePage() {
-  const [games, setGames] = useState([]); // state to handle the data (users)
+  const [games, setGames] = useState([]); // state to handle the data (games)
   const [searchTerm, setSearchTerm] = useState(""); // state to handle the search term
-  const [filter, setFilter] = useState(""); // state to handle the filter
-  const [sortBy, setSortBy] = useState("title"); // state to handle the sort
-  // users: name of the state
-  // setUsers: name of the function to set the state
+  const [difficultyFilter, setDifficultyFilter] = useState(""); // state to handle the difficulty filter
+  const [themeFilter, setThemeFilter] = useState(""); // state to handle the theme filter
+  const [playersFilter, setPlayersFilter] = useState(""); // state to handle the players filter
+  const [audienceFilter, setAudienceFilter] = useState(""); // state to handle the audience filter
+  const [playtimeFilter, setPlaytimeFilter] = useState(""); // state to handle the playtime filter
+  const [mechanicsFilter, setMechanicsFilter] = useState(""); // state to handle the mechanics filter
 
   useEffect(() => {
-    getGames();
-
     async function getGames() {
-      const data = localStorage.getItem("games"); // get data from local storage
+      const data = localStorage.getItem("games"); // Get data from local storage
 
       let gamesData = [];
 
       if (data) {
-        // if data exists in local storage
-        // gamesData = JSON.parse(data); // parse the data from string to javascript array
-        gamesData = await fetchGames(); // fetch the data from the API
+        // If data exists in local storage
+        gamesData = JSON.parse(data); // Parse the data from string to JavaScript array
       } else {
-        // if data does not exist in local storage fetch the data from the API
-        // gamesData = await fetchGames(); // fetch the data from the API
+        // If data does not exist in local storage, fetch the data from the API
+        gamesData = await fetchGames(); // Fetch the data from the API
       }
 
       console.log(gamesData);
-      setGames(gamesData); // set the games state with the data from local storage
+      setGames(gamesData); // Set the games state with the data from local storage or API
     }
+
+    getGames();
   }, []);
 
   async function fetchGames() {
     const response = await fetch(
       "https://raw.githubusercontent.com/Aloya04/react-crud-mpv/main/board-games.json"
-    ); // fetch the data from the API
-    const data = await response.json(); // parse the data from string to javascript array
-    localStorage.setItem("games", JSON.stringify(data)); // save the data to local storage
-    return data; // return the data
+    ); // Fetch the data from the API
+    const data = await response.json(); // Parse the data from string to JavaScript array
+    localStorage.setItem("games", JSON.stringify(data)); // Save the data to local storage
+    return data; // Return the data
   }
 
-  // Search, filter and sort the users array
+  // Filter the games array
   let filteredGames = games.filter((game) =>
     game.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const difficulties = [...new Set(games.map((game) => game.difficulty))]; // get all the unique titles from the games array
-  const themes = [...new Set(games.map((game) => game.theme))]; // get all the unique titles from the games array
-  const playerss = [...new Set(games.map((game) => game.players))]; // get all the unique titles from the games array
-  const audiences = [...new Set(games.map((game) => game.audience))]; // get all the unique titles from the games array
-  const playtimes = [...new Set(games.map((game) => game.playtime))]; // get all the unique titles from the games array
-  const mechanicss = [...new Set(games.map((game) => game.mechanics))]; // get all the unique titles from the games array
-
-  if (filter != "") {
-    filteredGames = filteredGames.filter((game) => game.title === filter); // filter the users array by the selected title
+  if (difficultyFilter) {
+    filteredGames = filteredGames.filter(
+      (game) => game.difficulty === difficultyFilter
+    );
+  }
+  if (themeFilter) {
+    filteredGames = filteredGames.filter((game) => game.theme === themeFilter);
+  }
+  if (playersFilter) {
+    filteredGames = filteredGames.filter(
+      (game) => game.players === playersFilter
+    );
+  }
+  if (audienceFilter) {
+    filteredGames = filteredGames.filter(
+      (game) => game.audience === audienceFilter
+    );
+  }
+  if (playtimeFilter) {
+    filteredGames = filteredGames.filter(
+      (game) => game.playtime === playtimeFilter
+    );
+  }
+  if (mechanicsFilter) {
+    filteredGames = filteredGames.filter(
+      (game) => game.mechanics === mechanicsFilter
+    );
   }
 
-  filteredGames.sort((game1, game2) =>
-    game1[sortBy].localeCompare(game2[sortBy])
-  ); // sort the users array by the selected sort
+  // Sort the games array by the selected sort
+
+  // Get unique values for filter options
+  const difficulties = [...new Set(games.map((game) => game.difficulty))];
+  const themes = [...new Set(games.map((game) => game.theme))];
+  const playerss = [...new Set(games.map((game) => game.players))];
+  const audiences = [...new Set(games.map((game) => game.audience))];
+  const playtimes = [...new Set(games.map((game) => game.playtime))];
+  const mechanicss = [...new Set(games.map((game) => game.mechanics))];
 
   return (
     <section className="page">
+      <label>
+        Search by Title{" "}
+        <input
+          placeholder="Search"
+          type="search"
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </label>
       <form className="grid-filter" role="search">
         <label>
-          Search by Title{" "}
-          <input
-            placeholder="Search"
-            type="search"
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </label>
-
-        <label>
           Filter by Difficulty
-          <select onChange={(e) => setFilter(e.target.value)}>
+          <select onChange={(e) => setDifficultyFilter(e.target.value)}>
             <option value="">select difficulty</option>
             {difficulties.map((difficulty) => (
               <option key={difficulty} value={difficulty}>
@@ -86,7 +110,7 @@ export default function HomePage() {
 
         <label>
           Filter by Theme
-          <select onChange={(e) => setFilter(e.target.value)}>
+          <select onChange={(e) => setThemeFilter(e.target.value)}>
             <option value="">select theme</option>
             {themes.map((theme) => (
               <option key={theme} value={theme}>
@@ -98,7 +122,7 @@ export default function HomePage() {
 
         <label>
           Filter by Players
-          <select onChange={(e) => setFilter(e.target.value)}>
+          <select onChange={(e) => setPlayersFilter(e.target.value)}>
             <option value="">select player amount</option>
             {playerss.map((players) => (
               <option key={players} value={players}>
@@ -110,7 +134,7 @@ export default function HomePage() {
 
         <label>
           Filter by Audience
-          <select onChange={(e) => setFilter(e.target.value)}>
+          <select onChange={(e) => setAudienceFilter(e.target.value)}>
             <option value="">select target audience</option>
             {audiences.map((audience) => (
               <option key={audience} value={audience}>
@@ -122,7 +146,7 @@ export default function HomePage() {
 
         <label>
           Filter by Playtime
-          <select onChange={(e) => setFilter(e.target.value)}>
+          <select onChange={(e) => setPlaytimeFilter(e.target.value)}>
             <option value="">select playtime</option>
             {playtimes.map((playtime) => (
               <option key={playtime} value={playtime}>
@@ -134,20 +158,13 @@ export default function HomePage() {
 
         <label>
           Filter by Mechanics
-          <select onChange={(e) => setFilter(e.target.value)}>
+          <select onChange={(e) => setMechanicsFilter(e.target.value)}>
             <option value="">select mechanics</option>
             {mechanicss.map((mechanics) => (
               <option key={mechanics} value={mechanics}>
                 {mechanics}
               </option>
             ))}
-          </select>
-        </label>
-
-        <label>
-          Sort by
-          <select name="sort-by" onChange={(e) => setSortBy(e.target.value)}>
-            <option value="title">Title</option>
           </select>
         </label>
       </form>
