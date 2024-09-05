@@ -8,7 +8,8 @@
     "players": "2-4",
     "audience": "Everyone",
     "playtime": "90-120min",
-    "mechanics": "Strategy"
+    "mechanics": "Strategy",
+    "location": "D1"
   },
   {
     "id": "2",
@@ -19,7 +20,8 @@
     "players": "3-6",
     "audience": "Everyone",
     "playtime": "90-120min",
-    "mechanics": "Competitive"
+    "mechanics": "Competitive",
+    "location": "D2"
   },
   {
     "id": "3",
@@ -30,7 +32,8 @@
     "players": "6+",
     "audience": "Everyone",
     "playtime": "15-30min",
-    "mechanics": "Competitive"
+    "mechanics": "Competitive",
+    "location": "E3"
   },
   {
     "id": "4",
@@ -41,7 +44,8 @@
     "players": "3-6",
     "audience": "Everyone",
     "playtime": "90-120min",
-    "mechanics": "Deduction"
+    "mechanics": "Deduction",
+    "location": "C3"
   },
   {
     "id": "5",
@@ -52,7 +56,8 @@
     "players": "2-4",
     "audience": "Adults",
     "playtime": "2+ hours",
-    "mechanics": "Co-op"
+    "mechanics": "Co-op",
+    "location": "A5"
   },
   {
     "id": "6",
@@ -63,7 +68,8 @@
     "players": "2-5",
     "audience": "Everyone",
     "playtime": "15-30min",
-    "mechanics": "Competitive"
+    "mechanics": "Competitive",
+    "location": "G3"
   },
   {
     "id": "7",
@@ -74,7 +80,8 @@
     "players": "6+",
     "audience": "Adults",
     "playtime": "60-90min",
-    "mechanics": "Teams"
+    "mechanics": "Teams",
+    "location": "B2"
   },
   {
     "id": "8",
@@ -85,7 +92,8 @@
     "players": "2-4",
     "audience": "Everyone",
     "playtime": "90-120min",
-    "mechanics": "Co-op"
+    "mechanics": "Co-op",
+    "location": "B2"
   },
   {
     "id": "9",
@@ -96,7 +104,8 @@
     "players": "6+",
     "audience": "Adults",
     "playtime": "30-60min",
-    "mechanics": "Competitive"
+    "mechanics": "Competitive",
+    "location": "B4"
   },
   {
     "id": "10",
@@ -107,6 +116,7 @@
     "players": "3-6",
     "audience": "Everyone",
     "playtime": "30-60min",
-    "mechanics": "Strategy"
+    "mechanics": "Strategy",
+    "location": "F1"
   }
 ]
