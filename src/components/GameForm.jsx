@@ -13,7 +13,7 @@ export default function GameForm({ onSubmit, onCancel, game }) {
   useEffect(() => {
     if (game) {
       game.title && setTitle(game.title); // if game.title is true, set the title state with the game.title value
-      game.theme && setTheme(game.theme); // if game.title is true, set the title state with the game.title value
+      game.theme && setTheme(game.theme);
       game.difficulty && setDifficulty(game.difficulty);
       game.players && setPlayers(game.players);
       game.audience && setAudience(game.audience);
@@ -61,6 +61,7 @@ export default function GameForm({ onSubmit, onCancel, game }) {
 
   return (
     <form onSubmit={handleOnSubmit}>
+      <label htmlFor="">Title</label>
       <input
         id="title"
         type="text"
@@ -69,6 +70,7 @@ export default function GameForm({ onSubmit, onCancel, game }) {
         onChange={(e) => setTitle(e.target.value)}
       />
 
+      <label htmlFor="">Difficulty</label>
       <input
         id="difficulty"
         type="text"
@@ -77,6 +79,7 @@ export default function GameForm({ onSubmit, onCancel, game }) {
         onChange={(e) => setDifficulty(e.target.value)}
       />
 
+      <label htmlFor="">Theme</label>
       <input
         id="theme"
         type="text"
@@ -85,6 +88,7 @@ export default function GameForm({ onSubmit, onCancel, game }) {
         onChange={(e) => setTheme(e.target.value)}
       />
 
+      <label htmlFor="">Players</label>
       <input
         id="players"
         type="text"
@@ -93,6 +97,7 @@ export default function GameForm({ onSubmit, onCancel, game }) {
         onChange={(e) => setPlayers(e.target.value)}
       />
 
+      <label htmlFor="">Audience</label>
       <input
         id="audience"
         type="text"
@@ -101,6 +106,7 @@ export default function GameForm({ onSubmit, onCancel, game }) {
         onChange={(e) => setAudience(e.target.value)}
       />
 
+      <label htmlFor="">Playtime</label>
       <input
         id="playtime"
         type="text"
@@ -109,6 +115,7 @@ export default function GameForm({ onSubmit, onCancel, game }) {
         onChange={(e) => setPlaytime(e.target.value)}
       />
 
+      <label htmlFor="">Mechanics</label>
       <input
         id="mechanics"
         type="text"
@@ -117,10 +124,11 @@ export default function GameForm({ onSubmit, onCancel, game }) {
         onChange={(e) => setMechanics(e.target.value)}
       />
 
+      <label htmlFor="">Image URL</label>
       <input
         type="url"
         value={image}
-        placeholder="Paste image url"
+        placeholder="Paste image URL"
         onChange={(e) => setImage(e.target.value)}
       />
       <label htmlFor="image-preview"></label>

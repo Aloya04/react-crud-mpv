@@ -87,14 +87,16 @@ export default function HomePage() {
 
   return (
     <section className="page">
-      <label>
-        Search by Title{" "}
-        <input
-          placeholder="Search"
-          type="search"
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </label>
+      <div className="search-bar">
+        <label>
+          Search by Title{" "}
+          <input
+            placeholder="Search"
+            type="search"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </label>
+      </div>
       <form className="grid-filter" role="search">
         <label>
           Filter by Difficulty
